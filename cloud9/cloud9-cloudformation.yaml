@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'aws cloud9 environments'
+Resources:
+  AWSCloud9Environment1:
+    Type: AWS::Cloud9::EnvironmentEC2
+    Properties: 
+      AutomaticStopTimeMinutes: 120
+      Description: '1st cloud9 environment'
+      InstanceType: 't2.micro'
+      Name: 'devenv-01'
+  AWSCloud9Environment2:
+    Type: AWS::Cloud9::EnvironmentEC2
+    Properties: 
+      AutomaticStopTimeMinutes: 120
+      Description: '2nd cloud9 environment'
+      InstanceType: 't2.micro'
+      Name: 'devenv-02'

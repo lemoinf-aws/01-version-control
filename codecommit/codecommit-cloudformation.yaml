@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'aws codecommit repository (and associated stuff)'
+Resources:
+  Repository:
+    Type: AWS::CodeCommit::Repository
+    Properties: 
+      RepositoryName: tempo
+      RepositoryDescription: 'aws codecommit repository for aws devops workshops series'
+  UserMrRobot:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: mr.robot
+  UserProfFalken:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: prof.falken
+  Group:
+    Type: AWS::IAM::Group
+    Properties:
+      GroupName: devops
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSCodeCommitPowerUser
+  UserGroupMembership:
+    Type: AWS::IAM::UserToGroupAddition
+    Properties:
+      GroupName:
+        Ref: Group
+      Users:
+        - Ref: UserMrRobot
+        - Ref: UserProfFalken
