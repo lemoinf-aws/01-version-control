@@ -1,17 +1,21 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'aws cloud9 environments'
+Description: 'AWS Cloud9 environments for the Git and GitHub labs'
+
 Resources:
   AWSCloud9Environment1:
     Type: AWS::Cloud9::EnvironmentEC2
     Properties: 
-      AutomaticStopTimeMinutes: 120
-      Description: '1st cloud9 environment'
-      InstanceType: 't2.micro'
       Name: 'devenv-01'
+      AutomaticStopTimeMinutes: 30
+      Description: '1st cloud9 environment'
+      ImageId: amazonlinux-2023-x86_64
+      InstanceType: t2.micro
+
   AWSCloud9Environment2:
     Type: AWS::Cloud9::EnvironmentEC2
     Properties: 
-      AutomaticStopTimeMinutes: 120
-      Description: '2nd cloud9 environment'
-      InstanceType: 't2.micro'
       Name: 'devenv-02'
+      AutomaticStopTimeMinutes: 30
+      Description: '2nd cloud9 environment'
+      ImageId: amazonlinux-2023-x86_64
+      InstanceType: t2.micro
